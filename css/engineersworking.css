@@ -115,7 +115,8 @@ body {
       background-color: transparent;
       border-color: rgba(255, 255, 255, 0.3); }
       #mainNav .navbar-brand {
-        color: rgba(255, 255, 255, 0.7); 
+        /* color: rgba(255, 255, 255, 0.7);  */
+        color: #fff;
         text-shadow: 2px 2px #716B6BB3;
         font-family: Audiowide;
       }        
@@ -132,9 +133,12 @@ body {
         border-color: rgba(34, 34, 34, 0.05); }
         #mainNav.navbar-shrink .navbar-brand {
           color: #00aec4;
-          font-size: 16px; }
+          font-size: 16px;
+          text-shadow: none !important;
+        }
           #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
-            color: #00aec4; }
+            color: #00aec4; 
+          }
         #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
         #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
           color: #222222; }
@@ -252,7 +256,7 @@ header.masthead {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
       font-size: 16px; }
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-      font-size: 22px; } }
+      font-size: 20px; } }
 
 .call-to-action {
   padding: 50px 0; }
@@ -353,6 +357,10 @@ header.masthead {
 
 
 /*styles for contact form*/
+
+#contact{
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
 
 .contact-form {
     float: none;
@@ -530,16 +538,39 @@ header.masthead {
     color: #00aec4
 }
 
+#address-short-scz , #address-short-cbba{
+  display: none;
+}
+
+#address-large-scz , #address-large-cbba{
+  display: block;
+}
+
 .info{
     position: absolute;
     top: 0;
     background-color: white;
     color: #464a4c;
-    padding: 20px 0px 0px 41px;
+    padding: 10px 0px 0px 41px;
     margin: 15px 0px 0px 15px;
     width: 610px;
     height: 90%;
     border: solid 1px #ccc;
+}
+
+.info h2{
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
+  font-family: Audiowide;
+  font-size: 30px !important;
+  font-weight: bold im !important;
+}
+
+.project-category{
+  font-family: 'Audiowide';
 }
 
 .contact{
@@ -583,11 +614,20 @@ header.masthead {
 }
 
 .logo-content img{
-  width: 270px;
+  width: 250px;
 }
 
 .logo-content-subtitle img{
   width: 50%;
+}
+
+.toast-success {
+  background-color: #00aec4 !important;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+#toast-container.toast-bottom-center > div, #toast-container.toast-top-center > div {
+  width: 500px !important;  
 }
 
 /*styles for menu overlay*/
@@ -614,6 +654,7 @@ header.masthead {
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
 /* The navigation links inside the overlay */
@@ -648,8 +689,15 @@ header.masthead {
         right: 35px;
     }
     .logo-content-subtitle img{
-      width: 80%;
+      width: 90%;
     }
+
+    header.masthead .header-content .header-content-inner h1 {
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 38px; }
 }
 
 .navbar-toggler{
@@ -692,6 +740,10 @@ header.masthead {
     font-size: 35px !important;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 
 
   .navbar-toggler {
@@ -703,7 +755,7 @@ header.masthead {
           width: 100%;
       }
       .logo-content-subtitle img{
-        width: 85%;
+        width: 90%;
       }
       /*#btn-menu{
   display: none;
@@ -713,9 +765,36 @@ header.masthead {
 @media (max-width: 700px) {
       .info {
           width: 95%;
+          margin-left: 9.7px;
+          padding-left: 10px;
       }
+
+      .info h2{
+        font-size: 17px;
+      }
+
+      .info .icon-info{
+         width: 34px !important;
+      }
+
+      .info .icon-info i {
+        font-size: 15px;
+      }
+
+      .info .input-info{
+        font-size: 11px;
+      }
+
+      #address-short-scz , #address-short-cbba{
+        display: block;
+      }
+
+      #address-large-scz , #address-large-cbba{
+        display: none;
+      }
+
       .logo-text {
-          font-size: 1.1rem;
+          font-size: 1.0rem;
           /*display: none;*/
       }
       .fa-navicon {
@@ -729,6 +808,9 @@ header.masthead {
       }
       #btn-menu i {
           color: #000;
+      }
+      header.masthead .header-content .header-content-inner h1 {
+        font-size: 38px !important; 
       }
 }
 

@@ -1,6 +1,69 @@
 (function ($) {
     "use strict"; // Start of use strict
 
+    
+
+    function Toast(type, css, msg) {
+        this.type = type;
+        this.css = css;
+        this.msg = 'This is positioned in the ' + msg + '. You can also style the icon any way you like.';
+    }
+
+    var toasts = [
+        new Toast('error', 'toast-bottom-full-width', 'This is positioned in the bottom full width. You can also style the icon any way you like.'),
+        new Toast('info', 'toast-top-full-width', 'top full width'),
+        new Toast('warning', 'toast-top-left', 'This is positioned in the top left. You can also style the icon any way you like.'),
+        new Toast('success', 'toast-top-right', 'top right'),
+        new Toast('warning', 'toast-bottom-right', 'bottom right'),
+        new Toast('error', 'toast-bottom-left', 'bottom left')
+    ];
+
+    // toastr.options.positionClass = 'toast-bottom-full-width';
+    // toastr.options.extendedTimeOut = 10000;
+    // toastr.options.timeOut = 1000;
+    // toastr.options.fadeOut = 2500;
+    // toastr.options.fadeIn = 2500;
+
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-bottom-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    $('#btn-send').click(function () {
+        $("#contactForm").validate();
+        // alert('testse');
+        if (isValidForm()) {
+            toastr.success('Gracias por contactarnos!,  nos pondremos en contacto contigo lo antes posible.', 'Satisfactorio')
+        } else {
+            toastr.warning('Lo sentimos!, Por favor ingresa tus datos.', 'Info')
+        }
+    })
+
+    function isValidForm() {
+        const name = $('#name').val();
+        const email = $('#email').val();
+        const message = $('#message').val();
+
+        if (!name || !email || !message) {
+            return false;
+        }
+
+        return true;
+    }
+
     $('.menu').click(function () {
         if ($('#overlay-menu').width() > 0) {
             $('.fa-navicon').show();
@@ -42,7 +105,7 @@
         target: '#mainNav',
         offset: 48
     });
- 
+
 
     // Collapse the navbar when page is scrolled
     $(window).scroll(function () {

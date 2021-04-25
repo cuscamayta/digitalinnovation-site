@@ -5,13 +5,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="web site for engineers working">
-    <meta name="author" content="engineersworking">
+    <meta name="description" content="web site for digital innovations">
+    <meta name="author" content="digitalinnovations">
 
     <link rel="icon" type="image/png" href="img/logo.png" />
     
 
-    <title>Engineers Working</title>
+    <title>Digital Innovations</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -23,6 +23,7 @@
         rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
+    <link href="vendor/toastr/toastr.min.css" rel="stylesheet" />
 
     <!-- Plugin CSS -->
     <!--<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">-->
@@ -46,7 +47,7 @@
             </button>
             <div class="container">
                 <a class="navbar-brand logo" href="#page-top">
-                    <img src="img/logo_color.png" alt="logo engineersworking">
+                    <img src="img/logo_color.png" alt="logo digital innovation">
                 </a>
                 <a class="navbar-brand logo-text" href="#page-top">DIGITAL INNOVATIONS</a>
                 <div class="collapse navbar-collapse" id="navbarExample">
@@ -57,10 +58,10 @@
     <header class="masthead">
         <div class="header-content">
             <div class="header-content-inner logo-text">
-                <p class="logo-content"><img src="img/logo.png" alt="logo engineersworking"></p>
+                <p class="logo-content"><img src="img/logo.png" alt="logo digitl innovations"></p>
                 <h1 id="homeHeading">DIGITAL INNOVATIONS</h1>
                 <hr>
-                <p class="logo-content-subtitle"><img src="img/subtitle.png" alt="logo engineersworking"></p>
+                <p class="logo-content-subtitle"><img src="img/subtitle.png" alt="logo Digital Innovations"></p>
                 <a href="#about"><i class="fa fa-angle-double-down pointer" aria-hidden="true"></i></a>
             </div>
         </div>
@@ -72,7 +73,7 @@
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <h2 class="section-heading text-white">Tenemos lo que tu empresa necesita</h2>
                     <hr class="light">
-                    <p class="text-faded" style=" font-size: 16px !important;">En Engineers Working nos caracterizamos por nuestra innovación, calidad y creatividad que permite a los
+                    <p class="text-faded" style=" font-size: 16px !important;">En Digital Innovations nos caracterizamos por nuestra innovación, calidad y creatividad que permite a los
                         clientes mejorar sus procesos y gestión de negocio.
                     </p>
                     <a class="btn btn-default btn-xl sr-button " href="#services">Siguenos.</a>
@@ -319,19 +320,22 @@
                     <div class="form" id="contactForm" method="post" name="contactForm">
                         <fieldset>
                             <div class="col-sm-12">
-                                <input id="name" name="name" placeholder="Tu nombre*" type="text" value="">
+                                <input id="name" name="name" placeholder="Tu nombre*" type="text" value="" required>
+                                <!-- <label for="name">Nombre <span>(por favor dinos quien eres.)</span></label> -->
                             </div>
 
                             <div class="col-sm-12">
-                                <input id="email" name="email" placeholder="Tu correo*" type="text" value="">
+                                <input id="email" name="email" type="email" placeholder="Tu correo*" type="text" value="" required>
+                                <!-- <label for="email">E-Mail <span>(requerido)</span></label> -->
                             </div>
 
                             <div class="col-sm-12">
-                                <textarea cols="5" id="message" name="message" placeholder="Tu mensaje....*"></textarea>
+                                <textarea cols="5" id="message" name="message" placeholder="Tu mensaje....*" required></textarea>
+                                <!-- <label for="name">Mensaje <span>(Por favor escribe un mensaje.)</span></label> -->
                             </div>
 
                             <div class="col-sm-12">
-                                <button class="submit active">ENVIAR</button>
+                                <button class="submit active cursor-pointer" id="btn-send">ENVIAR</button>
                             </div>
 
                             <div class="error col-sm-12">
@@ -352,27 +356,33 @@
 
 
     <div class="contact">
-        <div class="col-md-12">
-            <!--<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1nL-Xljp4aKzNw9SiXLGVUV82XXU" width="640" height="480"></iframe>-->
-            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/u/0/embed?mid=1nL-Xljp4aKzNw9SiXLGVUV82XXU"></iframe>
+        <div class="col-md-12">            
+            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d691.3856853150629!2d-63.2002368147583!3d-17.757467775288767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7fb1f367ee5%3A0xf86f1f7be10f7428!2sAvenida%20San%20Mart%C3%ADn%2C%20Santa%20Cruz%20de%20la%20Sierra!5e0!3m2!1sen!2sbo!4v1619305018252!5m2!1sen!2sbo"  style="border:0;" ></iframe>            
         </div>
 
         <div class="info">
             <h2>Informacion</h2>
-            <br>
+            
             <div class="input-group">
                 <span class="input-group-addon icon-info"><i class="fa fa-map-marker"></i></span>
-                <input readonly name="zip" class="form-control input-info" type="text" value="3er. Anillo Interno, Frente al comercial Chiriguano">
+                <input id="address-large-scz" readonly name="zip" class="form-control input-info" type="text" value="Santa Cruz, 4to. Anillo, Avenida San Martin, calle K. #635">
+                <input id="address-short-scz" readonly name="zip" class="form-control input-info" type="text" value="Scz, 4to. Anillo, Av. San Martin, calle K. #635">
+                <i class="form-control-feedback" style="display: none;"></i>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon icon-info"><i class="fa fa-map-marker"></i></span>
+                <input id="address-large-cbba" readonly name="address-large-cbba" class="form-control input-info" type="text" value="Cochabamba, Avenida D'Orbigni, Calle Francisco Pizarro, #1024">
+                <input id="address-short-cbba" readonly name="adderss-short-cbba" class="form-control input-info" type="text" value="Cbba, Av. D'Orbigni, Calle Francisco Pizarro, #1024">
                 <i class="form-control-feedback" style="display: none;"></i>
             </div>
             <div class="input-group">
                 <span class="input-group-addon icon-info"><i class="fa fa-globe"></i></span>
-                <input readonly name="zip" class="form-control input-info" type="text" value="www.engineersworking.com">
+                <input readonly name="zip" class="form-control input-info" type="text" value="http://digital-innovation.solutions/">
                 <i class="form-control-feedback" style="display: none;"></i>
             </div>
             <div class="input-group">
                 <span class="input-group-addon icon-info"><i class="fa fa-envelope"></i></span>
-                <input readonly name="zip" class="form-control input-info" type="text" value="contactos@engineersworking.com">
+                <input readonly name="zip" class="form-control input-info" type="text" value="contactos@digital-innovation.solutions">
                 <i class="form-control-feedback" style="display: none;"></i>
             </div>
             <div class="input-group">
@@ -382,7 +392,7 @@
             </div>
             <div class="input-group">
                 <span class="input-group-addon icon-info"><i class="fa fa-phone"></i></span>
-                <input readonly name="zip" class="form-control input-info" type="text" value="+591 70096872">
+                <input readonly name="zip" class="form-control input-info" type="text" value="+591 70940042">
                 <i class="form-control-feedback" style="display: none;"></i>
             </div>
         </div>
@@ -408,19 +418,21 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <!--<script src="vendor/jquery/jquery.min.js"></script>-->
-    <!--<script src="vendor/tether/tether.min.js"></script>-->
-    <!--<script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/toastr/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
-    <!--<script src="vendor/scrollreveal/scrollreveal.min.js"></script>-->
-    <!--<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <!--<script src="js/engineersworking.js"></script>-->
+    <script src="js/engineersworking.js"></script>    
 
-    <script src="js/engineersworking_all.min.js"></script>
+    <!-- <script src="js/engineersworking_all.min.js"></script> -->
   
 
 </body>
